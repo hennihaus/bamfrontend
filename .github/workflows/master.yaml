@@ -20,7 +20,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
 
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.40.0
+        uses: anothrNick/github-tag-action@1.61.0
         id: tag-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
