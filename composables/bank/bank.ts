@@ -1,5 +1,4 @@
 import { Bank } from "@hennihaus/bamconfigbackend";
-import { Ref } from "@vue/reactivity";
 
 export const useBank = (bank: Ref<Bank>) => {
   const { t } = useBaseI18n();

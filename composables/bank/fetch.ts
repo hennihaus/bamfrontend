@@ -3,7 +3,7 @@ import { Bank } from "@hennihaus/bamconfigbackend";
 const BANKS_PATH = "/banks";
 const STATISTICS_PATH = "/statistics";
 
-export const useBanksFetch = async (stopLoading: boolean = false) => {
+export const useBanksFetch = async (stopLoading = false) => {
   const { data: banks, refresh: refreshBanks } = await useBaseFetch<Bank[]>(
     BANKS_PATH,
     { stopLoading }

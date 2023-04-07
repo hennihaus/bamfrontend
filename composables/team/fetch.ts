@@ -1,5 +1,4 @@
 import { Team, TeamQuery, Teams } from "@hennihaus/bamconfigbackend";
-import { Ref } from "@vue/reactivity";
 
 const TEAMS_PATH = "/teams";
 const BROKER_PATH = "/activemq";
@@ -39,10 +38,7 @@ export const useTeamsFetch = async (teamQuery?: Ref<TeamQuery>) => {
   };
 };
 
-export const useTeamFetch = async (
-  uuid: Ref<string>,
-  immediate: boolean = true
-) => {
+export const useTeamFetch = async (uuid: Ref<string>, immediate = true) => {
   const { t } = useBaseI18n();
 
   const message = ref("");

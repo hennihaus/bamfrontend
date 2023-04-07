@@ -1,3 +1,6 @@
+/* eslint-disable camelcase --
+ * VeeValidate has some default functions with camel case
+ */
 import { CreditConfiguration } from "@hennihaus/bamconfigbackend";
 import { configure, defineRule } from "vee-validate";
 import {

@@ -30,8 +30,8 @@ jobs:
       - name: Run formatter tests
         run: npm run prettier:ci
 
-      # - name: Run lint tests
-      #   run: npm run lint
+      - name: Run lint tests
+        run: npm run lint:ci
 
       # - name: Run unit tests
       #   run: npm run test:ci
