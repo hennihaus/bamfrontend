@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const isLoading = useIsLoading();
 
-const handleError = () => isLoading.value = false;
+const handleError = () => (isLoading.value = false);
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const handleError = () => isLoading.value = false;
           <div class="right menu">
             <NuxtErrorBoundary @error="handleError">
               <template #default>
-                <slot name="sidebar"/>
+                <slot name="sidebar" />
               </template>
 
               <template #error>
@@ -31,7 +31,7 @@ const handleError = () => isLoading.value = false;
     <main class="content">
       <NuxtErrorBoundary @error="handleError">
         <template #default>
-          <slot/>
+          <slot />
         </template>
 
         <template #error>

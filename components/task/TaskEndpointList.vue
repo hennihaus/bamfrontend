@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {Endpoint} from "@hennihaus/bamconfigbackend";
+import { Endpoint } from "@hennihaus/bamconfigbackend";
 
 defineProps<{ endpoints: Endpoint[] }>();
 </script>

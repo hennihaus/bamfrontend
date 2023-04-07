@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {Task} from "@hennihaus/bamconfigbackend";
+import { Task } from "@hennihaus/bamconfigbackend";
 
 const props = defineProps<{ uuid: string }>();
 
-const {task, updateTask} = await useTaskFetch(toRef(props, "uuid"));
+const { task, updateTask } = await useTaskFetch(toRef(props, "uuid"));
 
 const onSubmitTask = async (task: Task) => {
   await updateTask(task);
@@ -11,7 +11,7 @@ const onSubmitTask = async (task: Task) => {
     name: "TasksDetails",
     params: {
       uuid: task.uuid,
-    }
+    },
   });
 };
 </script>

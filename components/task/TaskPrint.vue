@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const emit = defineEmits<{ (event: "close"): void }>();
 
-const {activatedTasks} = await useTasksFetch();
+const { activatedTasks } = await useTasksFetch();
 
-const onClose = () => emit("close")
-onBeforeMount(() => setTimeout(() => window.print(), 1_000))
+const onClose = () => emit("close");
+onBeforeMount(() => setTimeout(() => window.print(), 1_000));
 onMounted(() => window.addEventListener("afterprint", onClose));
 onUnmounted(() => window.removeEventListener("afterprint", onClose));
 </script>
@@ -13,17 +13,17 @@ onUnmounted(() => window.removeEventListener("afterprint", onClose));
   <div v-for="task in activatedTasks" :key="task.uuid" class="page">
     <TaskDetailsView :task="task">
       <template #details>
-        <BankCreditConfigurationList :banks="task.banks"/>
+        <BankCreditConfigurationList :banks="task.banks" />
 
-        <TaskEndpointList :endpoints="task.endpoints"/>
+        <TaskEndpointList :endpoints="task.endpoints" />
       </template>
     </TaskDetailsView>
   </div>
 
   <BaseMessage
-      v-if="!activatedTasks.length"
-      :message="$t('task.not-found', 2)"
-      size="massive"
+    v-if="!activatedTasks.length"
+    :message="$t('task.not-found', 2)"
+    size="massive"
   />
 </template>
 

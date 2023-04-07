@@ -1,11 +1,11 @@
 <template>
   <BaseLayout>
     <template #default>
-      <slot/>
+      <slot />
     </template>
 
     <template #sidebar>
-      <BankHeaderSidebar/>
+      <BankHeaderSidebar />
     </template>
   </BaseLayout>
 </template>

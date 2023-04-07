@@ -1,11 +1,11 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: "tasks"
+  layout: "tasks",
 });
 </script>
 
 <template>
   <div>
-    <NuxtPage/>
+    <NuxtPage />
   </div>
 </template>

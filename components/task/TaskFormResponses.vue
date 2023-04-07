@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {Field, useFieldArray} from "vee-validate";
-import type {Response} from "@hennihaus/bamconfigbackend";
+import { Field, useFieldArray } from "vee-validate";
+import type { Response } from "@hennihaus/bamconfigbackend";
 
 const NO_STATUS_CODE_POSSIBLE = -1;
 
-const {fields: responses} = useFieldArray<Response>("responses");
+const { fields: responses } = useFieldArray<Response>("responses");
 const descriptionRules = {
   required: true,
   min: 1,
@@ -19,9 +19,9 @@ const exampleRules = {
 
 <template>
   <div
-      v-for="(response, index) in responses"
-      :key="response.key"
-      class="fields"
+    v-for="(response, index) in responses"
+    :key="response.key"
+    class="fields"
   >
     <div class="field">
       <label>
@@ -32,38 +32,38 @@ const exampleRules = {
         </span>
       </label>
       <Field
-          v-slot="{ field, errors }"
-          :name="`responses[${index}].description`"
-          :rules="descriptionRules"
-          :label="$t('task.response-description')"
-          type="text"
+        v-slot="{ field, errors }"
+        :name="`responses[${index}].description`"
+        :rules="descriptionRules"
+        :label="$t('task.response-description')"
+        type="text"
       >
         <div class="ui left corner labeled input">
-          <input v-bind="field" type="text"/>
+          <input v-bind="field" type="text" />
           <div class="ui left corner label">
-            <i class="asterisk icon"/>
+            <i class="asterisk icon" />
           </div>
         </div>
-        <BaseFormMessage :errors="errors"/>
+        <BaseFormMessage :errors="errors" />
       </Field>
     </div>
 
     <div class="field">
       <label>{{ $t("task.response-example") }}</label>
       <Field
-          v-slot="{ field, errors }"
-          :name="`responses[${index}].example`"
-          :rules="exampleRules"
-          :label="$t('task.response-example')"
-          type="text"
+        v-slot="{ field, errors }"
+        :name="`responses[${index}].example`"
+        :rules="exampleRules"
+        :label="$t('task.response-example')"
+        type="text"
       >
         <div class="ui left corner labeled input">
-          <input v-bind="field" type="text"/>
+          <input v-bind="field" type="text" />
           <div class="ui left corner label">
-            <i class="asterisk icon"/>
+            <i class="asterisk icon" />
           </div>
         </div>
-        <BaseFormMessage :errors="errors"/>
+        <BaseFormMessage :errors="errors" />
       </Field>
     </div>
   </div>

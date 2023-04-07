@@ -7,7 +7,11 @@ const { banks } = await useBanksFetch();
 </script>
 
 <template>
-  <BaseFrontendPagination :items="banks" :page-number="pageNumber" page="BanksList">
+  <BaseFrontendPagination
+    :items="banks"
+    :page-number="pageNumber"
+    page="BanksList"
+  >
     <template #item="{ item }">
       <BankListItem :key="item.uuid" :bank="item" />
     </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="ui menu">
-    <TheLanguage/>
+    <TheLanguage />
 
     <NuxtLink :to="{ name: 'Start' }" exact-active-class="active" class="item">
       {{ $t("core.start") }}
@@ -11,10 +11,15 @@
     <NuxtLink :to="{ name: 'BanksIndex' }" active-class="active" class="item">
       {{ $t("core.bank", 2) }}
     </NuxtLink>
-    <NuxtLink :to="{ name: 'TeamsIndex' }" active-class="active" active class="item">
+    <NuxtLink
+      :to="{ name: 'TeamsIndex' }"
+      active-class="active"
+      active
+      class="item"
+    >
       {{ $t("core.team", 2) }}
     </NuxtLink>
 
-    <slot name="sidebar"/>
+    <slot name="sidebar" />
   </div>
 </template>

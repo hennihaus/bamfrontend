@@ -6,5 +6,5 @@ const route = useRoute();
 </script>
 
 <template>
-  <BankDetails :uuid="route.params.uuid"/>
+  <BankDetails :uuid="route.params.uuid" />
 </template>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {Team} from "@hennihaus/bamconfigbackend";
+import { Team } from "@hennihaus/bamconfigbackend";
 
-const props = defineProps<{ uuid: string, thumbnailUrl: string }>();
+const props = defineProps<{ uuid: string; thumbnailUrl: string }>();
 
-const [{banks}, {team, updateTeam}] = await Promise.all([
+const [{ banks }, { team, updateTeam }] = await Promise.all([
   useBanksFetch(),
   useTeamFetch(toRef(props, "uuid")),
 ]);
@@ -17,12 +17,12 @@ const onSubmitTeam = async (team: Team) => {
     params: {
       uuid: team.uuid,
       thumbnailUrl: props.thumbnailUrl,
-    }
+    },
   });
 };
 </script>
 
 <template>
   <h1>{{ $t("team.edit") }}</h1>
-  <TeamForm @submit-team="onSubmitTeam"/>
+  <TeamForm @submit-team="onSubmitTeam" />
 </template>

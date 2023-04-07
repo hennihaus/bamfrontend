@@ -2,7 +2,7 @@
 definePageMeta({
   name: "TasksIndex",
   redirect: {
-    name: "TasksList"
-  }
-})
+    name: "TasksList",
+  },
+});
 </script>

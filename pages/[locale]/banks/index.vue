@@ -2,7 +2,7 @@
 definePageMeta({
   name: "BanksIndex",
   redirect: {
-    name: "BanksList"
-  }
+    name: "BanksList",
+  },
 });
 </script>

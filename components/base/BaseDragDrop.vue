@@ -5,11 +5,11 @@ type Item = { id: string; list: List };
 const DRAG_DROP_KEY = "id";
 
 const props = withDefaults(
-    defineProps<{ selected?: string[]; unselected?: string[] }>(),
-    {
-      selected: () => [],
-      unselected: () => [],
-    }
+  defineProps<{ selected?: string[]; unselected?: string[] }>(),
+  {
+    selected: () => [],
+    unselected: () => [],
+  }
 );
 const emit = defineEmits<{
   (event: "onDropSelected", items: string[]): void;
@@ -17,14 +17,14 @@ const emit = defineEmits<{
 }>();
 
 const allItems = ref<Item[]>([
-  ...props.selected.map((item) => ({id: item, list: "SELECTED" as List})),
-  ...props.unselected.map((item) => ({id: item, list: "UNSELECTED" as List})),
+  ...props.selected.map((item) => ({ id: item, list: "SELECTED" as List })),
+  ...props.unselected.map((item) => ({ id: item, list: "UNSELECTED" as List })),
 ]);
 const selectedItems = computed(() =>
-    allItems.value.filter((item) => item.list === "SELECTED")
+  allItems.value.filter((item) => item.list === "SELECTED")
 );
 const unselectedItems = computed(() =>
-    allItems.value.filter((item) => item.list === "UNSELECTED")
+  allItems.value.filter((item) => item.list === "UNSELECTED")
 );
 
 const onDrag = (event: DragEvent, item: Item) => {
@@ -38,11 +38,17 @@ const onDrop = (event: DragEvent, list: List) => {
   if (event.dataTransfer) {
     const id = event.dataTransfer?.getData(DRAG_DROP_KEY);
     allItems.value = allItems.value.map((item) =>
-        item.id === id ? {...item, list} : item
+      item.id === id ? { ...item, list } : item
     );
 
-    emit("onDropSelected", selectedItems.value.map((item) => item.id));
-    emit("onDropUnselected", unselectedItems.value.map((item) => item.id));
+    emit(
+      "onDropSelected",
+      selectedItems.value.map((item) => item.id)
+    );
+    emit(
+      "onDropUnselected",
+      unselectedItems.value.map((item) => item.id)
+    );
   }
 };
 </script>
@@ -50,19 +56,19 @@ const onDrop = (event: DragEvent, list: List) => {
 <template>
   <div class="ui grid">
     <div class="eight wide column">
-      <slot name="selectedLabel"/>
+      <slot name="selectedLabel" />
       <div
-          class="ui segments"
-          @drop="onDrop($event, 'SELECTED')"
-          @dragover.prevent
-          @dragenter.prevent
+        class="ui segments"
+        @drop="onDrop($event, 'SELECTED')"
+        @dragover.prevent
+        @dragenter.prevent
       >
         <div
-            v-for="item in selectedItems"
-            :key="item.id"
-            class="ui segment"
-            draggable="true"
-            @dragstart="onDrag($event, item)"
+          v-for="item in selectedItems"
+          :key="item.id"
+          class="ui segment"
+          draggable="true"
+          @dragstart="onDrag($event, item)"
         >
           {{ item.id }}
         </div>
@@ -73,19 +79,19 @@ const onDrop = (event: DragEvent, list: List) => {
     </div>
 
     <div class="eight wide column">
-      <slot name="unselectedLabel"/>
+      <slot name="unselectedLabel" />
       <div
-          class="ui segments"
-          @drop="onDrop($event, 'UNSELECTED')"
-          @dragover.prevent
-          @dragenter.prevent
+        class="ui segments"
+        @drop="onDrop($event, 'UNSELECTED')"
+        @dragover.prevent
+        @dragenter.prevent
       >
         <div
-            v-for="item in unselectedItems"
-            :key="item.id"
-            class="ui segment"
-            draggable="true"
-            @dragstart="onDrag($event, item)"
+          v-for="item in unselectedItems"
+          :key="item.id"
+          class="ui segment"
+          draggable="true"
+          @dragstart="onDrag($event, item)"
         >
           {{ item.id }}
         </div>

@@ -1,24 +1,24 @@
 <script setup lang="ts">
-const {t} = useBaseI18n();
+const { t } = useBaseI18n();
 
 const props = withDefaults(
-    defineProps<{
-      creditConfiguration: CreditConfiguration;
-      title?: string | null;
-    }>(),
-    {
-      title: null,
-    }
+  defineProps<{
+    creditConfiguration: CreditConfiguration;
+    title?: string | null;
+  }>(),
+  {
+    title: null,
+  }
 );
 
 const computedTitle = computed(() =>
-    props.title ? props.title : t("bank.credit-configuration")
+  props.title ? props.title : t("bank.credit-configuration")
 );
 </script>
 
 <template>
   <h4>{{ computedTitle }}</h4>
-  <slot name="jmsQueue"/>
+  <slot name="jmsQueue" />
 
   <div>
     {{ $t("bank.credit-configuration-min-amount-in-euros") }}:

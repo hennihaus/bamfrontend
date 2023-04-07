@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{ uuid: string }>();
 
-const {task} = await useTaskFetch(toRef(props, "uuid"));
+const { task } = await useTaskFetch(toRef(props, "uuid"));
 </script>
 
 <template>
@@ -9,7 +9,7 @@ const {task} = await useTaskFetch(toRef(props, "uuid"));
     <template #options>
       <NuxtLink :to="{ name: 'TasksEdit', params: { uuid } }">
         <button class="ui tiny yellow labeled icon button">
-          <i class="write icon"/> {{ $t("task.edit") }}
+          <i class="write icon" /> {{ $t("task.edit") }}
         </button>
       </NuxtLink>
     </template>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {Translation} from "vue-i18n"
+import { Translation } from "vue-i18n";
 
-const { locale } = useBaseI18n()
+const { locale } = useBaseI18n();
 
-const navigateToHome = () => clearError({ redirect: `/${locale.value}` })
+const navigateToHome = () => clearError({ redirect: `/${locale.value}` });
 </script>
 
 <template>
@@ -13,7 +13,13 @@ const navigateToHome = () => clearError({ redirect: `/${locale.value}` })
     </template>
 
     <template #description>
-      <Translation keypath="core.start-navigation" tag="p" scope="global" class="custom" @click="navigateToHome">
+      <Translation
+        keypath="core.start-navigation"
+        tag="p"
+        scope="global"
+        class="custom"
+        @click="navigateToHome"
+      >
         <template #start>
           <u>{{ $t("core.start") }}</u>
         </template>
@@ -27,4 +33,3 @@ const navigateToHome = () => clearError({ redirect: `/${locale.value}` })
   cursor: pointer;
 }
 </style>
-

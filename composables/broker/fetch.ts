@@ -1,20 +1,20 @@
 export const useBrokerFetch = () => {
-    const {t} = useBaseI18n();
+  const { t } = useBaseI18n();
 
-    const message = ref("");
+  const message = ref("");
 
-    const resetBroker = async (): Promise<void> => {
-        message.value = "";
+  const resetBroker = async (): Promise<void> => {
+    message.value = "";
 
-        await useBaseFetch<void>("/activemq", {
-            method: "DELETE",
-        });
+    await useBaseFetch<void>("/activemq", {
+      method: "DELETE",
+    });
 
-        message.value = t("core.home-restart-course-success");
-    }
+    message.value = t("core.home-restart-course-success");
+  };
 
-    return {
-        message: readonly(message),
-        resetBroker,
-    }
-}
+  return {
+    message: readonly(message),
+    resetBroker,
+  };
+};

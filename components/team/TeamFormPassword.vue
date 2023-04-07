@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {useField, useFormValues} from "vee-validate";
-import {Team} from "@hennihaus/bamconfigbackend";
+import { useField, useFormValues } from "vee-validate";
+import { Team } from "@hennihaus/bamconfigbackend";
 
-const {t} = useBaseI18n();
+const { t } = useBaseI18n();
 const config = useAppConfig();
 const team = useFormValues<Team>();
 
@@ -11,23 +11,23 @@ const {
   errors: passwordErrors,
   handleBlur: handlePasswordBlur,
 } = useField<string>(
-    "password",
-    {
-      required: true,
-      min: config.passwordLength,
-      max: 50,
-      unique_password: {
-        uuid: team.value.uuid,
-      },
+  "password",
+  {
+    required: true,
+    min: config.passwordLength,
+    max: 50,
+    unique_password: {
+      uuid: team.value.uuid,
     },
-    {label: t("team.password")}
+  },
+  { label: t("team.password") }
 );
 
 const onGeneratePassword = () => {
   let text = "";
   for (let i = 0; i < config.passwordLength; i++) {
     text = `${text}${config.passwordSequence.charAt(
-        Math.floor(Math.random() * config.passwordSequence.length)
+      Math.floor(Math.random() * config.passwordSequence.length)
     )}`;
   }
   password.value = text;
@@ -38,14 +38,14 @@ const onGeneratePassword = () => {
   <div class="field">
     <label>{{ $t("team.password") }}</label>
     <div class="ui action input left corner labeled">
-      <input v-model="password" type="text" @blur="handlePasswordBlur"/>
+      <input v-model="password" type="text" @blur="handlePasswordBlur" />
       <div class="ui left corner label">
-        <i class="asterisk icon"/>
+        <i class="asterisk icon" />
       </div>
       <button type="button" class="ui button" @click="onGeneratePassword">
         {{ $t("common.generate") }}
       </button>
     </div>
-    <BaseFormMessage :errors="passwordErrors"/>
+    <BaseFormMessage :errors="passwordErrors" />
   </div>
 </template>

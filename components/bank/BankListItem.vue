@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import {Bank} from "@hennihaus/bamconfigbackend";
+import { Bank } from "@hennihaus/bamconfigbackend";
 
 const props = defineProps<{ bank: Bank }>();
 
-const {activeStatus, asyncStatus} = useBank(toRef(props, "bank"));
+const { activeStatus, asyncStatus } = useBank(toRef(props, "bank"));
 </script>
 
 <template>
-  <NuxtLink :to="{ name: 'BanksDetails', params: { uuid: props.bank.uuid } }" class="item custom-item">
+  <NuxtLink
+    :to="{ name: 'BanksDetails', params: { uuid: props.bank.uuid } }"
+    class="item custom-item"
+  >
     <img
-        v-base-image-error
-        :src="bank.thumbnailUrl"
-        class="ui tiny image custom-image"
+      v-base-image-error
+      :src="bank.thumbnailUrl"
+      class="ui tiny image custom-image"
     />
 
     <div class="content">
@@ -21,7 +24,7 @@ const {activeStatus, asyncStatus} = useBank(toRef(props, "bank"));
       </div>
       <div class="metadata">
         {{ asyncStatus }}
-        <br/>
+        <br />
         <div v-if="bank.isAsync">
           {{ $t("common.counter", 1) }} {{ $t("core.team", 2) }}
         </div>
