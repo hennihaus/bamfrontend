@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {Team} from "@hennihaus/bamconfigbackend";
-import {useForm} from "vee-validate";
+import { Team } from "@hennihaus/bamconfigbackend";
+import { useForm } from "vee-validate";
 
 const emit = defineEmits<{ (event: "submitTeam", team: Team): void }>();
 
@@ -11,14 +11,14 @@ const initialValues = computed(() => {
     return {
       ...oldTeam.value,
       students: oldTeam.value.students.length
-          ? oldTeam.value.students
-          : [createEmptyStudent()],
+        ? oldTeam.value.students
+        : [createEmptyStudent()],
       statistics: removeStatistics(oldTeam.value),
     };
   }
   return createEmptyTeam();
 });
-const {handleSubmit, validateField} = useForm<Team>({
+const { handleSubmit, validateField } = useForm<Team>({
   initialValues,
   validateOnMount: false,
   keepValuesOnUnmount: false,
@@ -26,19 +26,18 @@ const {handleSubmit, validateField} = useForm<Team>({
 const onSubmit = handleSubmit((newTeam: Team) => {
   const statistics = mergeStatistics(newTeam, oldTeam.value);
   const students = newTeam.students.filter(
-      (student) => student.firstname && student.lastname
+    (student) => student.firstname && student.lastname
   );
   const createdAt = newTeam.createdAt || createLocalDateTime();
   const updatedAt = createLocalDateTime();
 
   emit("submitTeam", {
-        ...newTeam,
-        students,
-        statistics,
-        createdAt,
-        updatedAt,
-      }
-  );
+    ...newTeam,
+    students,
+    statistics,
+    createdAt,
+    updatedAt,
+  });
 });
 
 const createLocalDateTime = (): string => {
@@ -50,8 +49,8 @@ const createLocalDateTime = (): string => {
 
 <template>
   <form class="ui form" @submit="onSubmit">
-    <TeamFormCommon/>
-    <TeamFormStudents :validate-field="validateField"/>
-    <TeamFormStatistics/>
+    <TeamFormCommon />
+    <TeamFormStudents :validate-field="validateField" />
+    <TeamFormStatistics />
   </form>
 </template>

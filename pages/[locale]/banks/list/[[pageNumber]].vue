@@ -1,10 +1,10 @@
 <script setup lang="ts">
 definePageMeta({
-  name: "BanksList"
+  name: "BanksList",
 });
 const route = useRoute();
 </script>
 
 <template>
-  <BankList :page-number="route.params.pageNumber"/>
+  <BankList :page-number="route.params.pageNumber" />
 </template>

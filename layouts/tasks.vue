@@ -8,15 +8,15 @@ const onPrintClose = () => (isPrintingTasks.value = false);
   <div class="content">
     <BaseLayout>
       <template #default>
-        <slot/>
+        <slot />
       </template>
 
       <template #sidebar>
-        <TaskHeaderSidebar @print-tasks="onPrintTasks"/>
+        <TaskHeaderSidebar @print-tasks="onPrintTasks" />
       </template>
     </BaseLayout>
 
-    <TaskPrint v-if="isPrintingTasks" @close="onPrintClose"/>
+    <TaskPrint v-if="isPrintingTasks" @close="onPrintClose" />
   </div>
 </template>
 

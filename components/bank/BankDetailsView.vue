@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import {Bank} from "@hennihaus/bamconfigbackend";
+import { Bank } from "@hennihaus/bamconfigbackend";
 
 const props = defineProps<{ bank: Bank }>();
 
-const {activeStatus, asyncStatus, updatedAt} = useBank(toRef(props, "bank"));
+const { activeStatus, asyncStatus, updatedAt } = useBank(toRef(props, "bank"));
 </script>
 
 <template>
   <h1>{{ bank.name }}</h1>
   <h3>{{ activeStatus }}</h3>
 
-  <div class="ui divider"/>
+  <div class="ui divider" />
 
   <div class="ui grid">
     <div class="four wide column">
-      <img v-base-image-error :src="bank.thumbnailUrl" class="ui small image"/>
+      <img v-base-image-error :src="bank.thumbnailUrl" class="ui small image" />
     </div>
 
     <div class="four wide column">
@@ -28,7 +28,9 @@ const {activeStatus, asyncStatus, updatedAt} = useBank(toRef(props, "bank"));
     </div>
 
     <div v-if="bank.creditConfiguration" class="four wide column">
-      <BankCreditConfigurationListItem :credit-configuration="bank.creditConfiguration"/>
+      <BankCreditConfigurationListItem
+        :credit-configuration="bank.creditConfiguration"
+      />
     </div>
 
     <div class="four wide column">
@@ -42,5 +44,5 @@ const {activeStatus, asyncStatus, updatedAt} = useBank(toRef(props, "bank"));
     </div>
   </div>
 
-  <div class="ui divider"/>
+  <div class="ui divider" />
 </template>

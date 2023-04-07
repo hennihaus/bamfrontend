@@ -6,5 +6,8 @@ const route = useRoute();
 </script>
 
 <template>
-  <TeamEdit :uuid="route.params.uuid" :thumbnail-url="route.params.thumbnailUrl"/>
+  <TeamEdit
+    :uuid="route.params.uuid"
+    :thumbnail-url="route.params.thumbnailUrl"
+  />
 </template>

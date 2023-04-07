@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {RatingLevel} from "~/utils/models";
-import {useField} from "vee-validate";
+import { RatingLevel } from "~/utils/models";
+import { useField } from "vee-validate";
 
-const {t} = useBaseI18n();
+const { t } = useBaseI18n();
 const ratingLevels = RatingLevel;
 
 const {
@@ -12,18 +12,18 @@ const {
   handleChange: handleMinAmountInEurosChange,
   handleBlur: handleMinAmountInEurosBlur,
 } = useField<number>(
-    "creditConfiguration.minAmountInEuros",
-    {
-      required: true,
-      integer: true,
-      min_value: 0,
-      max_value: Number.MAX_SAFE_INTEGER,
-      amount_in_euros: true,
-    },
-    {
-      validateOnValueUpdate: false,
-      label: t("bank.credit-configuration-min-amount-in-euros"),
-    }
+  "creditConfiguration.minAmountInEuros",
+  {
+    required: true,
+    integer: true,
+    min_value: 0,
+    max_value: Number.MAX_SAFE_INTEGER,
+    amount_in_euros: true,
+  },
+  {
+    validateOnValueUpdate: false,
+    label: t("bank.credit-configuration-min-amount-in-euros"),
+  }
 );
 const {
   value: maxAmountInEuros,
@@ -32,18 +32,18 @@ const {
   handleChange: handleMaxAmountInEurosChange,
   handleBlur: handleMaxAmountInEurosBlur,
 } = useField<number>(
-    "creditConfiguration.maxAmountInEuros",
-    {
-      required: true,
-      integer: true,
-      min_value: 0,
-      max_value: Number.MAX_SAFE_INTEGER,
-      amount_in_euros: true,
-    },
-    {
-      validateOnValueUpdate: false,
-      label: t("bank.credit-configuration-max-amount-in-euros"),
-    }
+  "creditConfiguration.maxAmountInEuros",
+  {
+    required: true,
+    integer: true,
+    min_value: 0,
+    max_value: Number.MAX_SAFE_INTEGER,
+    amount_in_euros: true,
+  },
+  {
+    validateOnValueUpdate: false,
+    label: t("bank.credit-configuration-max-amount-in-euros"),
+  }
 );
 const handleMinAmountInEurosInput = (event: Event) => {
   handleMinAmountInEurosChange(event);
@@ -61,15 +61,15 @@ const {
   handleChange: handleMinTermInMonthsChange,
   handleBlur: handleMinTermInMonthsBlur,
 } = useField<number>(
-    "creditConfiguration.minTermInMonths",
-    {
-      required: true,
-      integer: true,
-      min_value: 0,
-      max_value: Number.MAX_SAFE_INTEGER,
-      term_in_months: true,
-    },
-    {label: t("bank.credit-configuration-min-term-in-months")}
+  "creditConfiguration.minTermInMonths",
+  {
+    required: true,
+    integer: true,
+    min_value: 0,
+    max_value: Number.MAX_SAFE_INTEGER,
+    term_in_months: true,
+  },
+  { label: t("bank.credit-configuration-min-term-in-months") }
 );
 const {
   value: maxTermInMonths,
@@ -78,15 +78,15 @@ const {
   handleChange: handleMaxTermInMonthsChange,
   handleBlur: handleMaxTermInMonthsBlur,
 } = useField<number>(
-    "creditConfiguration.maxTermInMonths",
-    {
-      required: true,
-      integer: true,
-      min_value: 0,
-      max_value: Number.MAX_SAFE_INTEGER,
-      term_in_months: true,
-    },
-    {label: t("bank.credit-configuration-max-term-in-months")}
+  "creditConfiguration.maxTermInMonths",
+  {
+    required: true,
+    integer: true,
+    min_value: 0,
+    max_value: Number.MAX_SAFE_INTEGER,
+    term_in_months: true,
+  },
+  { label: t("bank.credit-configuration-max-term-in-months") }
 );
 const handleMinTermInMonthsInput = (event: Event) => {
   handleMinTermInMonthsChange(event);
@@ -134,16 +134,16 @@ const handleMaxSchufaRatingInput = (event: Event) => {
       </label>
       <div class="ui left corner labeled input">
         <input
-            :value="minAmountInEuros"
-            type="number"
-            @input="handleMinAmountInEurosInput"
-            @blur="handleMinAmountInEurosBlur"
+          :value="minAmountInEuros"
+          type="number"
+          @input="handleMinAmountInEurosInput"
+          @blur="handleMinAmountInEurosBlur"
         />
         <div class="ui left corner label">
-          <i class="asterisk icon"/>
+          <i class="asterisk icon" />
         </div>
       </div>
-      <BaseFormMessage :errors="minAmountInEurosErrors"/>
+      <BaseFormMessage :errors="minAmountInEurosErrors" />
     </div>
 
     <div class="field">
@@ -153,16 +153,16 @@ const handleMaxSchufaRatingInput = (event: Event) => {
       </label>
       <div class="ui left corner labeled input">
         <input
-            :value="maxAmountInEuros"
-            type="number"
-            @input="handleMaxAmountInEurosInput"
-            @blur="handleMaxAmountInEurosBlur"
+          :value="maxAmountInEuros"
+          type="number"
+          @input="handleMaxAmountInEurosInput"
+          @blur="handleMaxAmountInEurosBlur"
         />
         <div class="ui left corner label">
-          <i class="asterisk icon"/>
+          <i class="asterisk icon" />
         </div>
       </div>
-      <BaseFormMessage :errors="maxAmountInEurosErrors"/>
+      <BaseFormMessage :errors="maxAmountInEurosErrors" />
     </div>
   </div>
 
@@ -174,16 +174,16 @@ const handleMaxSchufaRatingInput = (event: Event) => {
       </label>
       <div class="ui left corner labeled input">
         <input
-            :value="minTermInMonths"
-            type="number"
-            @input="handleMinTermInMonthsInput"
-            @blur="handleMinTermInMonthsBlur"
+          :value="minTermInMonths"
+          type="number"
+          @input="handleMinTermInMonthsInput"
+          @blur="handleMinTermInMonthsBlur"
         />
         <div class="ui left corner label">
-          <i class="asterisk icon"/>
+          <i class="asterisk icon" />
         </div>
       </div>
-      <BaseFormMessage :errors="minTermInMonthsErrors"/>
+      <BaseFormMessage :errors="minTermInMonthsErrors" />
     </div>
 
     <div class="field">
@@ -193,16 +193,16 @@ const handleMaxSchufaRatingInput = (event: Event) => {
       </label>
       <div class="ui left corner labeled input">
         <input
-            :value="maxTermInMonths"
-            type="number"
-            @input="handleMaxTermInMonthsInput"
-            @blur="handleMaxTermInMonthsBlur"
+          :value="maxTermInMonths"
+          type="number"
+          @input="handleMaxTermInMonthsInput"
+          @blur="handleMaxTermInMonthsBlur"
         />
         <div class="ui left corner label">
-          <i class="asterisk icon"/>
+          <i class="asterisk icon" />
         </div>
       </div>
-      <BaseFormMessage :errors="maxTermInMonthsErrors"/>
+      <BaseFormMessage :errors="maxTermInMonthsErrors" />
     </div>
   </div>
 
@@ -210,41 +210,41 @@ const handleMaxSchufaRatingInput = (event: Event) => {
     <div class="field">
       <label>{{ $t("bank.credit-configuration-min-schufa-rating") }}</label>
       <select
-          :value="minSchufaRating"
-          class="select"
-          @input="handleMinSchufaRatingInput"
-          @blur="handleMinSchufaRatingBlur"
+        :value="minSchufaRating"
+        class="select"
+        @input="handleMinSchufaRatingInput"
+        @blur="handleMinSchufaRatingBlur"
       >
         <option
-            v-for="(ratingLevel, index) in ratingLevels"
-            :key="index + ratingLevel"
-            :value="ratingLevel"
-            :selected="minSchufaRating === ratingLevel"
+          v-for="(ratingLevel, index) in ratingLevels"
+          :key="index + ratingLevel"
+          :value="ratingLevel"
+          :selected="minSchufaRating === ratingLevel"
         >
           {{ ratingLevel }}
         </option>
       </select>
-      <BaseFormMessage :errors="minSchufaRatingErrors"/>
+      <BaseFormMessage :errors="minSchufaRatingErrors" />
     </div>
 
     <div class="field">
       <label>{{ $t("bank.credit-configuration-max-schufa-rating") }}</label>
       <select
-          :value="maxSchufaRating"
-          class="select"
-          @input="handleMaxSchufaRatingInput"
-          @blur="handleMaxSchufaRatingBlur"
+        :value="maxSchufaRating"
+        class="select"
+        @input="handleMaxSchufaRatingInput"
+        @blur="handleMaxSchufaRatingBlur"
       >
         <option
-            v-for="(ratingLevel, index) in ratingLevels"
-            :key="ratingLevel + index"
-            :value="ratingLevel"
-            :selected="maxSchufaRating === ratingLevel"
+          v-for="(ratingLevel, index) in ratingLevels"
+          :key="ratingLevel + index"
+          :value="ratingLevel"
+          :selected="maxSchufaRating === ratingLevel"
         >
           {{ ratingLevel }}
         </option>
       </select>
-      <BaseFormMessage :errors="maxSchufaRatingErrors"/>
+      <BaseFormMessage :errors="maxSchufaRatingErrors" />
     </div>
   </div>
 </template>

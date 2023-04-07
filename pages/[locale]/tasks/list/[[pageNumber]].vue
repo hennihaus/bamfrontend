@@ -6,5 +6,5 @@ const route = useRoute();
 </script>
 
 <template>
-  <TaskList :page-number="route.params.pageNumber"/>
+  <TaskList :page-number="route.params.pageNumber" />
 </template>

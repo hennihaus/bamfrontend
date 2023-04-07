@@ -2,7 +2,7 @@
 definePageMeta({
   name: "TeamsIndex",
   redirect: {
-    name: "TeamsList"
-  }
+    name: "TeamsList",
+  },
 });
 </script>

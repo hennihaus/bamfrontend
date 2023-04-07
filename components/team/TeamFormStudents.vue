@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import {Field, useFieldArray, ValidationResult} from "vee-validate";
-import {Student, Team} from "@hennihaus/bamconfigbackend";
+import { Field, useFieldArray, ValidationResult } from "vee-validate";
+import { Student, Team } from "@hennihaus/bamconfigbackend";
 
 const FIRST_STUDENT_ITEM = 0;
 const ONE_STUDENT = 1;
 
-const props = defineProps<{ validateField: (field: keyof Team) => Promise<ValidationResult> }>();
+const props = defineProps<{
+  validateField: (field: keyof Team) => Promise<ValidationResult>;
+}>();
 
 const {
   fields: students,
@@ -41,59 +43,59 @@ const onRemoveStudent = (index: number) => {
     <label>{{ $t("team.student", 2) }}</label>
     <div v-for="(entry, idx) in students" :key="entry.key" class="two fields">
       <Field
-          v-slot="{ field, errors }"
-          :label="$t('common.firstname')"
-          :name="`students[${idx}].firstname`"
-          :rules="{
+        v-slot="{ field, errors }"
+        :label="$t('common.firstname')"
+        :name="`students[${idx}].firstname`"
+        :rules="{
           ...studentRules,
           required_name: [`@students[${idx}].lastname`],
         }"
-          as="div"
-          class="field"
+        as="div"
+        class="field"
       >
         <input
-            v-bind="field"
-            :placeholder="$t('common.firstname')"
-            type="text"
-            @blur="onFirstnameBlur(idx)"
+          v-bind="field"
+          :placeholder="$t('common.firstname')"
+          type="text"
+          @blur="onFirstnameBlur(idx)"
         />
-        <BaseFormMessage :errors="errors"/>
+        <BaseFormMessage :errors="errors" />
       </Field>
 
       <Field
-          v-slot="{ field, errors }"
-          :label="$t('common.lastname')"
-          :name="`students[${idx}].lastname`"
-          :rules="{
+        v-slot="{ field, errors }"
+        :label="$t('common.lastname')"
+        :name="`students[${idx}].lastname`"
+        :rules="{
           ...studentRules,
           required_name: [`@students[${idx}].firstname`],
         }"
-          as="div"
-          class="field"
+        as="div"
+        class="field"
       >
         <div class="ui action input">
           <input
-              v-bind="field"
-              :placeholder="$t('common.lastname')"
-              type="text"
-              @blur="onLastnameBlur(idx)"
+            v-bind="field"
+            :placeholder="$t('common.lastname')"
+            type="text"
+            @blur="onLastnameBlur(idx)"
           />
           <button
-              type="button"
-              class="ui green icon button"
-              @click="onCreateStudent"
+            type="button"
+            class="ui green icon button"
+            @click="onCreateStudent"
           >
-            <i class="add icon"/>
+            <i class="add icon" />
           </button>
           <button
-              type="button"
-              class="ui red icon button"
-              @click="onRemoveStudent(idx)"
+            type="button"
+            class="ui red icon button"
+            @click="onRemoveStudent(idx)"
           >
-            <i class="trash icon"/>
+            <i class="trash icon" />
           </button>
         </div>
-        <BaseFormMessage :errors="errors"/>
+        <BaseFormMessage :errors="errors" />
       </Field>
     </div>
   </div>

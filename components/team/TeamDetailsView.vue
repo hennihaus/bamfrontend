@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import {Team} from "@hennihaus/bamconfigbackend";
+import { Team } from "@hennihaus/bamconfigbackend";
 
 const props = withDefaults(
-    defineProps<{
-      team: Team;
-      thumbnailUrl?: string;
-    }>(),
-    {thumbnailUrl: () => getRandomAvatarThumbnailUrl()}
+  defineProps<{
+    team: Team;
+    thumbnailUrl?: string;
+  }>(),
+  { thumbnailUrl: () => getRandomAvatarThumbnailUrl() }
 );
 
-const {hasPassedStatus, createdAt, updatedAt} = useTeam(toRef(props, "team"));
+const { hasPassedStatus, createdAt, updatedAt } = useTeam(toRef(props, "team"));
 </script>
 
 <template>
   <h1>{{ team.username }}</h1>
-  <div class="ui divider"/>
+  <div class="ui divider" />
 
   <div class="ui grid">
     <div v-if="thumbnailUrl" class="two wide column">
-      <img v-base-image-error :src="thumbnailUrl" class="ui small image"/>
+      <img v-base-image-error :src="thumbnailUrl" class="ui small image" />
     </div>
 
     <div class="fourteen wide column">
@@ -58,7 +58,7 @@ const {hasPassedStatus, createdAt, updatedAt} = useTeam(toRef(props, "team"));
   </div>
 
   <h4>{{ $t("core.bank", 2) }}</h4>
-  <TeamDetailsViewStatistics :team="team"/>
+  <TeamDetailsViewStatistics :team="team" />
 
-  <div class="ui divider"/>
+  <div class="ui divider" />
 </template>

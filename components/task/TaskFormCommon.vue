@@ -1,46 +1,65 @@
 <script setup lang="ts">
-import {Task} from "@hennihaus/bamconfigbackend";
-import {useField} from "vee-validate";
+import { Task } from "@hennihaus/bamconfigbackend";
+import { useField } from "vee-validate";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const props = defineProps<{ task: Task }>();
 
-const {t, locale} = useBaseI18n();
+const { t, locale } = useBaseI18n();
 
-const {value: title, errors: titleErrors, handleBlur: handleTitleBlur} = useField<string>(
-    "title",
-    {
-      required: true,
-      min: 6,
-      max: 50,
-      unique_title: {
-        uuid: props.task.uuid,
-      },
+const {
+  value: title,
+  errors: titleErrors,
+  handleBlur: handleTitleBlur,
+} = useField<string>(
+  "title",
+  {
+    required: true,
+    min: 6,
+    max: 50,
+    unique_title: {
+      uuid: props.task.uuid,
     },
-    {label: t("task.title")},
+  },
+  { label: t("task.title") }
 );
-const {value: firstname, errors: firstnameErrors, handleBlur: handleFirstnameBlur} = useField<string>(
-    "contact.firstname",
-    {required: true, min: 2, max: 50},
-    {label: t("common.firstname")},
+const {
+  value: firstname,
+  errors: firstnameErrors,
+  handleBlur: handleFirstnameBlur,
+} = useField<string>(
+  "contact.firstname",
+  { required: true, min: 2, max: 50 },
+  { label: t("common.firstname") }
 );
-const {value: lastname, errors: lastnameErrors, handleBlur: handleLastnameBlur} = useField<string>(
-    "contact.lastname",
-    {required: true, min: 2, max: 50},
-    {label: t("common.lastname")},
+const {
+  value: lastname,
+  errors: lastnameErrors,
+  handleBlur: handleLastnameBlur,
+} = useField<string>(
+  "contact.lastname",
+  { required: true, min: 2, max: 50 },
+  { label: t("common.lastname") }
 );
-const {value: email, errors: emailErrors, handleBlur: handleEmailBlur} = useField<string>(
-    "contact.email",
-    {required: true, email: true},
-    {label: t("task.email")},
+const {
+  value: email,
+  errors: emailErrors,
+  handleBlur: handleEmailBlur,
+} = useField<string>(
+  "contact.email",
+  { required: true, email: true },
+  { label: t("task.email") }
 );
-const {value: isOpenApiVerbose, handleBlur: handleIsOpenApiVerboseBlur} = useField<boolean>(
-    "isOpenApiVerbose"
-);
-const {value: description, errors: descriptionErrors, handleBlur: handleDescriptionBlur} = useField<string>(
-    "description",
-    {max: 2000},
-    {label: t("task.description")},
+const { value: isOpenApiVerbose, handleBlur: handleIsOpenApiVerboseBlur } =
+  useField<boolean>("isOpenApiVerbose");
+const {
+  value: description,
+  errors: descriptionErrors,
+  handleBlur: handleDescriptionBlur,
+} = useField<string>(
+  "description",
+  { max: 2000 },
+  { label: t("task.description") }
 );
 
 const ckEditorConfig = reactive({
@@ -65,8 +84,8 @@ const ckEditorConfig = reactive({
   },
 });
 const language = watch(
-    locale,
-    (language) => (ckEditorConfig.language = language)
+  locale,
+  (language) => (ckEditorConfig.language = language)
 );
 onUnmounted(() => language());
 </script>
@@ -75,55 +94,55 @@ onUnmounted(() => language());
   <div class="field">
     <label>{{ $t("task.title") }}</label>
     <div class="ui left corner labeled input">
-      <input v-model="title" type="text" @blur="handleTitleBlur"/>
+      <input v-model="title" type="text" @blur="handleTitleBlur" />
       <div class="ui left corner label">
-        <i class="asterisk icon"/>
+        <i class="asterisk icon" />
       </div>
     </div>
-    <BaseFormMessage :errors="titleErrors"/>
+    <BaseFormMessage :errors="titleErrors" />
   </div>
 
   <div class="three fields">
     <div class="field">
       <label>{{ $t("task.contact") }} {{ $t("common.firstname") }}</label>
       <div class="ui left corner labeled input">
-        <input v-model="firstname" type="text" @blur="handleFirstnameBlur"/>
+        <input v-model="firstname" type="text" @blur="handleFirstnameBlur" />
         <div class="ui left corner label">
-          <i class="asterisk icon"/>
+          <i class="asterisk icon" />
         </div>
       </div>
-      <BaseFormMessage :errors="firstnameErrors"/>
+      <BaseFormMessage :errors="firstnameErrors" />
     </div>
 
     <div class="field">
       <label>{{ $t("common.lastname") }}</label>
       <div class="ui left corner labeled input">
-        <input v-model="lastname" type="text" @blur="handleLastnameBlur"/>
+        <input v-model="lastname" type="text" @blur="handleLastnameBlur" />
         <div class="ui left corner label">
-          <i class="asterisk icon"/>
+          <i class="asterisk icon" />
         </div>
       </div>
-      <BaseFormMessage :errors="lastnameErrors"/>
+      <BaseFormMessage :errors="lastnameErrors" />
     </div>
 
     <div class="field">
       <label>{{ $t("task.email") }}</label>
       <div class="ui left corner labeled input">
-        <input v-model="email" type="email" @blur="handleEmailBlur"/>
+        <input v-model="email" type="email" @blur="handleEmailBlur" />
         <div class="ui left corner label">
-          <i class="asterisk icon"/>
+          <i class="asterisk icon" />
         </div>
       </div>
-      <BaseFormMessage :errors="emailErrors"/>
+      <BaseFormMessage :errors="emailErrors" />
     </div>
   </div>
 
   <div class="field">
     <label>{{ $t("task.description-show") }}</label>
     <select
-        v-model="isOpenApiVerbose"
-        class="select"
-        @blur="handleIsOpenApiVerboseBlur"
+      v-model="isOpenApiVerbose"
+      class="select"
+      @blur="handleIsOpenApiVerboseBlur"
     >
       <option :value="true">{{ $t("common.answer", 1) }}</option>
       <option :value="false">{{ $t("common.answer", 0) }}</option>
@@ -133,13 +152,13 @@ onUnmounted(() => language());
   <div class="field">
     <label>{{ $t("task.description") }}</label>
     <ckeditor
-        v-model="description"
-        :editor="ClassicEditor"
-        :config="ckEditorConfig"
-        tag-name="textarea"
-        @blur="handleDescriptionBlur"
+      v-model="description"
+      :editor="ClassicEditor"
+      :config="ckEditorConfig"
+      tag-name="textarea"
+      @blur="handleDescriptionBlur"
     />
-    <BaseFormMessage :errors="descriptionErrors"/>
+    <BaseFormMessage :errors="descriptionErrors" />
   </div>
 </template>
 

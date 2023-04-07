@@ -1,7 +1,7 @@
 <template>
   <BaseLayout>
     <template #default>
-      <slot/>
+      <slot />
     </template>
   </BaseLayout>
 </template>

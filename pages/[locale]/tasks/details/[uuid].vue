@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-  name: "TasksDetails"
+  name: "TasksDetails",
 });
 const route = useRoute();
 </script>

@@ -5,5 +5,5 @@ definePageMeta({
 </script>
 
 <template>
-  <TheStart/>
+  <TheStart />
 </template>

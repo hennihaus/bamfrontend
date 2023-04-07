@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import {Task, Response} from "@hennihaus/bamconfigbackend";
-import {useForm} from "vee-validate";
+import { Task, Response } from "@hennihaus/bamconfigbackend";
+import { useForm } from "vee-validate";
 
 const props = defineProps<{ task: Task }>();
 
 const emit = defineEmits<{ (event: "submitTask", task: Task): void }>();
 
 const initialValues = computed(() => props.task);
-const {handleSubmit, meta, isSubmitting} = useForm<Task>({
+const { handleSubmit, meta, isSubmitting } = useForm<Task>({
   initialValues,
   validateOnMount: false,
   keepValuesOnUnmount: false,
@@ -25,9 +25,9 @@ const onSubmit = handleSubmit((values: Task) => {
 
 const currentTab = ref(0);
 const tabs = [
-  resolveComponent('TaskFormCommon'),
-  resolveComponent('TaskFormParameters'),
-  resolveComponent('TaskFormResponses'),
+  resolveComponent("TaskFormCommon"),
+  resolveComponent("TaskFormParameters"),
+  resolveComponent("TaskFormResponses"),
 ];
 const hasPrevTab = computed(() => currentTab.value > 0);
 const hasNextTab = computed(() => currentTab.value < tabs.length - 1);
@@ -42,46 +42,46 @@ const onNext = () => currentTab.value++;
   <form class="ui equal width form" @submit="onSubmit">
     <h1>
       <span>
-        <slot v-if="isFirstTab" name="task-headline"/>
-        <slot v-else-if="isLastTab" name="responses-headline"/>
-        <slot v-else name="parameters-headline"/>
+        <slot v-if="isFirstTab" name="task-headline" />
+        <slot v-else-if="isLastTab" name="responses-headline" />
+        <slot v-else name="parameters-headline" />
       </span>
       <span> ({{ $t("task.step") }} {{ stepTab }})</span>
     </h1>
 
     <KeepAlive>
-      <component :is="tabs[currentTab]" :task="task"/>
+      <component :is="tabs[currentTab]" :task="task" />
     </KeepAlive>
 
     <div class="fields">
       <div v-if="hasPrevTab" class="field">
         <button
-            :disabled="!meta.valid"
-            :class="[meta.valid ? 'orange' : 'red']"
-            class="ui fluid button"
-            type="button"
-            @click="onPrev"
+          :disabled="!meta.valid"
+          :class="[meta.valid ? 'orange' : 'red']"
+          class="ui fluid button"
+          type="button"
+          @click="onPrev"
         >
           {{ $t("base.pagination-prev") }}
         </button>
       </div>
       <div v-if="hasNextTab" class="field">
         <button
-            :disabled="!meta.valid"
-            :class="[meta.valid ? 'green' : 'red']"
-            class="ui fluid button"
-            type="button"
-            @click="onNext"
+          :disabled="!meta.valid"
+          :class="[meta.valid ? 'green' : 'red']"
+          class="ui fluid button"
+          type="button"
+          @click="onNext"
         >
           {{ $t("base.pagination-next") }}
         </button>
       </div>
       <div v-if="isLastTab" class="field">
         <button
-            :disabled="!meta.valid || isSubmitting"
-            :class="[meta.valid ? 'green' : 'red']"
-            class="ui fluid button"
-            type="submit"
+          :disabled="!meta.valid || isSubmitting"
+          :class="[meta.valid ? 'green' : 'red']"
+          class="ui fluid button"
+          type="submit"
         >
           {{ $t("common.save") }}
         </button>

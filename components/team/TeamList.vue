@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const [{teams, pagination}, {banks}] = await Promise.all([
+const [{ teams, pagination }, { banks }] = await Promise.all([
   useTeamsFetch(),
   useBanksFetch(),
 ]);
@@ -8,14 +8,14 @@ const [{teams, pagination}, {banks}] = await Promise.all([
 <template>
   <BaseCursorPagination :pagination="pagination" page="TeamsList">
     <template #items>
-      <TeamListItem v-for="team in teams" :key="team.uuid" :team="team"/>
+      <TeamListItem v-for="team in teams" :key="team.uuid" :team="team" />
 
-      <BaseMessage v-if="!teams.length" :message="$t('team.not-found', 2)"/>
+      <BaseMessage v-if="!teams.length" :message="$t('team.not-found', 2)" />
     </template>
 
     <template #filters>
       <div class="filter">
-        <TeamListFilter :banks="banks"/>
+        <TeamListFilter :banks="banks" />
       </div>
     </template>
   </BaseCursorPagination>

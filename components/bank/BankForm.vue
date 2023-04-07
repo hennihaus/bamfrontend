@@ -1,25 +1,30 @@
 <script setup lang="ts">
-import {Bank} from "@hennihaus/bamconfigbackend";
-import {useField, useForm} from "vee-validate";
+import { Bank } from "@hennihaus/bamconfigbackend";
+import { useField, useForm } from "vee-validate";
 
-const {t} = useBaseI18n();
+const { t } = useBaseI18n();
 
 const props = defineProps<{ bank: Bank }>();
 const emit = defineEmits<{ (event: "submitBank", bank: Bank): void }>();
 
 const initialValues = computed(() => props.bank);
-const {handleSubmit, meta, isSubmitting} = useForm<Bank>({
+const { handleSubmit, meta, isSubmitting } = useForm<Bank>({
   initialValues,
   validateOnMount: false,
   keepValuesOnUnmount: false,
 });
 const onSubmit = handleSubmit((values: Bank) => emit("submitBank", values));
 
-const {value: isActive, handleBlur: handleIsBlurActive} = useField<boolean>("isActive");
-const {value: thumbnailUrl, errors: thumbnailUrlErrors, handleBlur: handleThumbnailUrlBlur} = useField<string>(
-    "thumbnailUrl",
-    {required: true, url: true},
-    {label: t("bank.thumbnail-url")}
+const { value: isActive, handleBlur: handleIsBlurActive } =
+  useField<boolean>("isActive");
+const {
+  value: thumbnailUrl,
+  errors: thumbnailUrlErrors,
+  handleBlur: handleThumbnailUrlBlur,
+} = useField<string>(
+  "thumbnailUrl",
+  { required: true, url: true },
+  { label: t("bank.thumbnail-url") }
 );
 </script>
 
@@ -41,26 +46,26 @@ const {value: thumbnailUrl, errors: thumbnailUrlErrors, handleBlur: handleThumbn
       <label>{{ $t("bank.thumbnail-url") }}</label>
       <div class="ui left corner labeled input">
         <input
-            v-model="thumbnailUrl"
-            type="url"
-            @blur="handleThumbnailUrlBlur"
+          v-model="thumbnailUrl"
+          type="url"
+          @blur="handleThumbnailUrlBlur"
         />
         <div class="ui left corner label">
-          <i class="asterisk icon"/>
+          <i class="asterisk icon" />
         </div>
       </div>
-      <BaseFormMessage :errors="thumbnailUrlErrors"/>
+      <BaseFormMessage :errors="thumbnailUrlErrors" />
     </div>
 
-    <BankFormCreditConfiguration v-if="bank.creditConfiguration"/>
+    <BankFormCreditConfiguration v-if="bank.creditConfiguration" />
 
-    <p/>
+    <p />
 
     <button
-        :disabled="isSubmitting"
-        :class="[meta.valid ? 'green' : 'red']"
-        type="submit"
-        class="ui fluid button"
+      :disabled="isSubmitting"
+      :class="[meta.valid ? 'green' : 'red']"
+      type="submit"
+      class="ui fluid button"
     >
       {{ $t("common.save") }}
     </button>

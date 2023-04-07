@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import {Team} from "@hennihaus/bamconfigbackend";
+import { Team } from "@hennihaus/bamconfigbackend";
 
 const props = defineProps<{ team: Team }>();
 
 const thumbnailUrl = getRandomAvatarThumbnailUrl();
 
-const {type, totalRequests, hasPassedStatus} = useTeam(toRef(props, "team"));
+const { type, totalRequests, hasPassedStatus } = useTeam(toRef(props, "team"));
 </script>
 
 <template>
   <NuxtLink
-      :to="{ name: 'TeamsDetails', params: { uuid: team.uuid, thumbnailUrl } }"
-      class="item"
+    :to="{ name: 'TeamsDetails', params: { uuid: team.uuid, thumbnailUrl } }"
+    class="item"
   >
-    <img v-base-image-error :src="thumbnailUrl" class="ui tiny image"/>
+    <img v-base-image-error :src="thumbnailUrl" class="ui tiny image" />
 
     <div class="content">
       <div class="header">{{ team.username }}</div>

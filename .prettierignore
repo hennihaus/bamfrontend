@@ -1,0 +1,5 @@
+.output
+.nuxt
+dist
+.gitignore
+README.md
