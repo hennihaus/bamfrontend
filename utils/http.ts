@@ -1,4 +1,3 @@
-import { WatchSource } from "@vue/runtime-core";
 import { Unique } from "@hennihaus/bamconfigbackend";
 
 export type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
