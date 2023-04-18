@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Bank } from "@hennihaus/bamconfigbackend";
-import { useField, useForm } from "vee-validate";
 import { HasPassed, TeamFormQuery, TeamType } from "~/utils/models";
 
 defineProps<{ banks: Bank[] }>();

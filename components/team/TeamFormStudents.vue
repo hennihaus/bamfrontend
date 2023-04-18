@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Field, useFieldArray, ValidationResult } from "vee-validate";
+import { ValidationResult } from "vee-validate";
 import { Student, Team } from "@hennihaus/bamconfigbackend";
 
 const FIRST_STUDENT_ITEM = 0;

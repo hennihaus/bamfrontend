@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Task, Response } from "@hennihaus/bamconfigbackend";
-import { useForm } from "vee-validate";
 
 const props = defineProps<{ task: Task }>();
 
