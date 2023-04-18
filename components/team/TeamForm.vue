@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Team } from "@hennihaus/bamconfigbackend";
-import { useForm } from "vee-validate";
 
 const emit = defineEmits<{ (event: "submitTeam", team: Team): void }>();
 

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useField } from "vee-validate";
 import { Statistics } from "~/utils/models";
 import { Translation } from "vue-i18n";
 

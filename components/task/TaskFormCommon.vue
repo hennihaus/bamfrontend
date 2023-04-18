@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Task } from "@hennihaus/bamconfigbackend";
-import { useField } from "vee-validate";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const props = defineProps<{ task: Task }>();

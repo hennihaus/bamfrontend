@@ -1,10 +1,4 @@
 <script setup lang="ts">
-import {
-  useField,
-  useFormValues,
-  useIsFormValid,
-  useIsSubmitting,
-} from "vee-validate";
 import { Team } from "@hennihaus/bamconfigbackend";
 
 const { t } = useBaseI18n();

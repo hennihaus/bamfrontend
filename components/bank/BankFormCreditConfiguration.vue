@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RatingLevel } from "~/utils/models";
-import { useField } from "vee-validate";
 
 const { t } = useBaseI18n();
 const ratingLevels = RatingLevel;

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Field, useFieldArray } from "vee-validate";
 import { Parameter, Task, TeamQuery } from "@hennihaus/bamconfigbackend";
 import { TeamType } from "~/utils/models";
 

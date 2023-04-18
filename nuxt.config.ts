@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     port: 4200,
   },
   extensions: [".vue", ".ts"],
+  modules: ["@vee-validate/nuxt"],
   ssr: false,
   telemetry: false,
   test: true,

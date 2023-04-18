@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Field, useFieldArray } from "vee-validate";
 import type { Response } from "@hennihaus/bamconfigbackend";
 
 const NO_STATUS_CODE_POSSIBLE = -1;
