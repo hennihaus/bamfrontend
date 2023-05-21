@@ -1,5 +1,6 @@
 import VueDOMPurifyHTML from "vue-dompurify-html";
 import CKEditor from "@ckeditor/ckeditor5-vue";
+import "@ckeditor/ckeditor5-build-classic/build/translations/de";
 
 export default defineNuxtPlugin(({ vueApp }) => {
   const PLACEHOLDER_IMAGE_PATH = "/img/placeholder.png";
