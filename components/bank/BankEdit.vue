@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Bank } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ uuid: string }>();
 
 const { bank, updateBank } = await useBankFetch(toRef(props, "uuid"));

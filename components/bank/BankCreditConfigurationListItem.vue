@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { CreditConfiguration } from "@hennihaus/bamconfigbackend";
+
+defineOptions({ inheritAttrs: false });
+defineSlots<{ jmsQueue?: (props: {}) => any }>();
+
 const { t } = useBaseI18n();
 
 const props = withDefaults(

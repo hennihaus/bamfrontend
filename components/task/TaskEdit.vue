@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Task } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ uuid: string }>();
 
 const { task, updateTask } = await useTaskFetch(toRef(props, "uuid"));

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { RatingLevel } from "~/utils/models";
 
+defineOptions({ inheritAttrs: false });
+
 const { t } = useBaseI18n();
 const ratingLevels = RatingLevel;
 

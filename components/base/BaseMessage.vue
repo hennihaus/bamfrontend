@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { MessageType } from "~/utils/models";
 
+defineOptions({ inheritAttrs: false });
+defineSlots<{ icon?: (props: {}) => any; description?: (props: {}) => any }>();
+
 withDefaults(
   defineProps<{
     message: string;

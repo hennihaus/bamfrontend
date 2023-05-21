@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ uuid: string }>();
 
 const { task } = await useTaskFetch(toRef(props, "uuid"));

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const emit = defineEmits<{ (event: "close"): void }>();
+defineOptions({ inheritAttrs: false });
+
+const emit = defineEmits<{ close: [] }>();
 
 const { activatedTasks } = await useTasksFetch();
 

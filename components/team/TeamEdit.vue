@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Team } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ uuid: string; thumbnailUrl: string }>();
 
 const [{ banks }, { team, updateTeam }] = await Promise.all([

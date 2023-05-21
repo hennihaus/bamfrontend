@@ -2,6 +2,8 @@
 import { ValidationResult } from "vee-validate";
 import { Student, Team } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const FIRST_STUDENT_ITEM = 0;
 const ONE_STUDENT = 1;
 

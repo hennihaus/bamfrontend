@@ -1,3 +1,8 @@
+<script setup lang="ts">
+defineOptions({ inheritAttrs: false });
+defineSlots<{ sidebar?: (props: {}) => any }>();
+</script>
+
 <template>
   <div class="ui menu">
     <TheLanguage />

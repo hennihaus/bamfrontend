@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { Response } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const NO_STATUS_CODE_POSSIBLE = -1;
 
 const { fields: responses } = useFieldArray<Response>("responses");

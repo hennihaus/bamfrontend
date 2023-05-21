@@ -1,12 +1,19 @@
 <script setup lang="ts">
-import { Task, Response } from "@hennihaus/bamconfigbackend";
+import { Response, Task } from "@hennihaus/bamconfigbackend";
+
+defineOptions({ inheritAttrs: false });
+defineSlots<{
+  "task-headline": (props: {}) => any;
+  "responses-headline": (props: {}) => any;
+  "parameters-headline": (props: {}) => any;
+}>();
 
 const props = defineProps<{ task: Task }>();
 
-const emit = defineEmits<{ (event: "submitTask", task: Task): void }>();
+const emit = defineEmits<{ submitTask: [task: Task] }>();
 
 const initialValues = computed(() => props.task);
-const { handleSubmit, meta, isSubmitting } = useForm<Task>({
+const { handleSubmit, meta, isSubmitting } = useForm({
   initialValues,
   validateOnMount: false,
   keepValuesOnUnmount: false,

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Translation } from "vue-i18n";
 
+defineOptions({ inheritAttrs: false });
+
 const { locale } = useBaseI18n();
 
 const navigateToHome = () => clearError({ redirect: `/${locale.value}` });

@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { Bank } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const { t } = useBaseI18n();
 
 const props = defineProps<{ bank: Bank }>();
-const emit = defineEmits<{ (event: "submitBank", bank: Bank): void }>();
+const emit = defineEmits<{ submitBank: [bank: Bank] }>();
 
 const initialValues = computed(() => props.bank);
-const { handleSubmit, meta, isSubmitting } = useForm<Bank>({
+const { handleSubmit, meta, isSubmitting } = useForm({
   initialValues,
   validateOnMount: false,
   keepValuesOnUnmount: false,

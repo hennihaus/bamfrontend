@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Team } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ team: Team }>();
 
 const { statistics } = useTeam(toRef(props, "team"));

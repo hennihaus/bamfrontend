@@ -2,6 +2,8 @@
 import { setLocale } from "@vee-validate/i18n";
 import { Locales } from "~/plugins/1.i18n";
 
+defineOptions({ inheritAttrs: false });
+
 const { locale } = useBaseI18n();
 const config = useRuntimeConfig();
 const route = useRoute();

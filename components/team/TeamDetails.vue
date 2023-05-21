@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ uuid: string; thumbnailUrl: string }>();
 
 const regularTeamType = TeamType.REGULAR;

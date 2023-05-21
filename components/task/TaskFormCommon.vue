@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { Task } from "@hennihaus/bamconfigbackend";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { reactive } from "@vue/reactivity";
+
+defineOptions({ inheritAttrs: false });
 
 const props = defineProps<{ task: Task }>();
 
@@ -61,6 +64,7 @@ const {
   { label: t("task.description") }
 );
 
+const editor = ClassicEditor;
 const ckEditorConfig = reactive({
   language: locale,
   toolbar: [
@@ -152,7 +156,7 @@ onUnmounted(() => language());
     <label>{{ $t("task.description") }}</label>
     <ckeditor
       v-model="description"
-      :editor="ClassicEditor"
+      :editor="editor"
       :config="ckEditorConfig"
       tag-name="textarea"
       @blur="handleDescriptionBlur"

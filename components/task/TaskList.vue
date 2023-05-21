@@ -2,6 +2,8 @@
 import { Ref } from "@vue/reactivity";
 import { Task } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 withDefaults(defineProps<{ pageNumber?: string | null }>(), {
   pageNumber: null,
 });

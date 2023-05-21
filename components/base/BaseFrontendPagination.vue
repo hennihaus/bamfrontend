@@ -1,14 +1,20 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T">
 import { useItemsPerWindowCalculator } from "~/composables";
 
 const FIRST_PAGE_NUMBER = 1;
 const PAGE_STEPPER_RANGE = 2;
 
+defineOptions({ inheritAttrs: false });
+defineSlots<{
+  item: (props: { item: T }) => any;
+  message: (props: {}) => any;
+}>();
+
 const props = withDefaults(
   defineProps<{
     pageNumber?: string | null;
     page: string;
-    items: readonly any[];
+    items: T[];
   }>(),
   {
     pageNumber: null,

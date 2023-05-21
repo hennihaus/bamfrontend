@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { Team } from "@hennihaus/bamconfigbackend";
 
-const emit = defineEmits<{ (event: "submitTeam", team: Team): void }>();
+defineOptions({ inheritAttrs: false });
+
+const emit = defineEmits<{ submitTeam: [team: Team] }>();
 
 const oldTeam = inject(TEAM, () => ref<Team>(), true);
 
-const initialValues = computed(() => {
+const initialValues = computed<Team>(() => {
   if (oldTeam.value) {
     return {
       ...oldTeam.value,
@@ -17,7 +19,7 @@ const initialValues = computed(() => {
   }
   return createEmptyTeam();
 });
-const { handleSubmit, validateField } = useForm<Team>({
+const { handleSubmit, validateField } = useForm({
   initialValues,
   validateOnMount: false,
   keepValuesOnUnmount: false,

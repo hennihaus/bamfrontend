@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineOptions({ inheritAttrs: false });
+
 const [{ teams, pagination }, { banks }] = await Promise.all([
   useTeamsFetch(),
   useBanksFetch(),

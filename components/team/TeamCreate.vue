@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Team } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const [{ banks }, { updateTeam }] = await Promise.all([
   useBanksFetch(),
   useTeamFetch(ref(""), false),
