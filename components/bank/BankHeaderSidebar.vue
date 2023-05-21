@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineOptions({ inheritAttrs: false });
+
 const { t } = useBaseI18n();
 const { asyncActiveBanks, refreshBanks } = await useBanksFetch(true);
 const { recreateStatistics } = useStatisticsFetch();

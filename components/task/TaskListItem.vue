@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Task } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ task: Task }>();
 
 const { integrationStep, thumbnailUrl, isAsyncTask } = useTask(

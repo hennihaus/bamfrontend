@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Bank } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ bank: Bank }>();
 
 const { activeStatus, asyncStatus, updatedAt } = useBank(toRef(props, "bank"));

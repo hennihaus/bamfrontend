@@ -2,6 +2,8 @@
 import { Statistics } from "~/utils/models";
 import { Translation } from "vue-i18n";
 
+defineOptions({ inheritAttrs: false });
+
 const ZERO_REQUESTS = 0;
 
 const team = inject(TEAM, null);

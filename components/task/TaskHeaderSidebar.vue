@@ -1,5 +1,7 @@
 <script setup lang="ts">
-defineEmits<{ (event: "printTasks"): void }>();
+defineOptions({ inheritAttrs: false });
+
+defineEmits<{ printTasks: [] }>();
 </script>
 
 <template>

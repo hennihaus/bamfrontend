@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Team } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const { t } = useBaseI18n();
 const isSubmitting = useIsSubmitting();
 const isFormValid = useIsFormValid();

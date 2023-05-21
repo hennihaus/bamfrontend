@@ -4,6 +4,12 @@ type Item = { id: string; list: List };
 
 const DRAG_DROP_KEY = "id";
 
+defineOptions({ inheritAttrs: false });
+defineSlots<{
+  selectedLabel?: (props: {}) => any;
+  unselectedLabel?: (props: {}) => any;
+}>();
+
 const props = withDefaults(
   defineProps<{ selected?: string[]; unselected?: string[] }>(),
   {
@@ -11,9 +17,10 @@ const props = withDefaults(
     unselected: () => [],
   }
 );
+
 const emit = defineEmits<{
-  (event: "onDropSelected", items: string[]): void;
-  (event: "onDropUnselected", items: string[]): void;
+  onDropSelected: [items: string[]];
+  onDropUnselected: [items: string[]];
 }>();
 
 const allItems = ref<Item[]>([

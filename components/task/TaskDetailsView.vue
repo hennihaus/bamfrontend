@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { Task } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+defineSlots<{ details?: (props: {}) => any; options?: (props: {}) => any }>();
+
 const props = defineProps<{ task: Task }>();
 
 const {

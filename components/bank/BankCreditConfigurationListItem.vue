@@ -1,4 +1,7 @@
 <script setup lang="ts">
+defineOptions({ inheritAttrs: false });
+defineSlots<{ jmsQueue?: (props: {}) => any }>();
+
 const { t } = useBaseI18n();
 
 const props = withDefaults(

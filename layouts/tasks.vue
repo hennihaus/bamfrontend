@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineSlots<{ default: (props: {}) => any }>();
+
 const isPrintingTasks = ref(false);
 const onPrintTasks = () => (isPrintingTasks.value = true);
 const onPrintClose = () => (isPrintingTasks.value = false);

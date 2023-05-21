@@ -2,6 +2,8 @@
 import { Parameter, Task, TeamQuery } from "@hennihaus/bamconfigbackend";
 import { TeamType } from "~/utils/models";
 
+defineOptions({ inheritAttrs: false });
+
 const { t } = useBaseI18n();
 const ratingLevels = RatingLevel;
 

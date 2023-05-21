@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Bank } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ banks: Bank[] }>();
 
 const activeBanks = computed(() =>

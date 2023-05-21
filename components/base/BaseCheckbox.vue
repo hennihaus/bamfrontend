@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ value: string; name: string }>();
 
 const { checked, handleBlur, handleChange } = useField<string>(

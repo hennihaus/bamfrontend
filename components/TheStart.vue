@@ -4,6 +4,8 @@ const { resetBroker, message } = useBrokerFetch();
 const type = MessageType.POSITIVE;
 const config = useRuntimeConfig();
 
+defineOptions({ inheritAttrs: false });
+
 const onResetBroker = async () => {
   if (confirm(t("core.home-restart-course-warning"))) {
     await resetBroker();

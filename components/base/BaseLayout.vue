@@ -1,4 +1,7 @@
 <script setup lang="ts">
+defineOptions({ inheritAttrs: false });
+defineSlots<{ default: (props: {}) => any; sidebar?: (props: {}) => any }>();
+
 const isLoading = useIsLoading();
 
 const handleError = () => (isLoading.value = false);

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { Parameter, Response } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 const { t } = useBaseI18n();
 
 const props = defineProps<{

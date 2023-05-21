@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Endpoint } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+
 defineProps<{ endpoints: Endpoint[] }>();
 </script>
 

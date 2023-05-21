@@ -2,6 +2,8 @@
 import { Task } from "@hennihaus/bamconfigbackend";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
+defineOptions({ inheritAttrs: false });
+
 const props = defineProps<{ task: Task }>();
 
 const { t, locale } = useBaseI18n();

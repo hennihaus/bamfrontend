@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { Pagination } from "@hennihaus/bamconfigbackend";
 
+defineOptions({ inheritAttrs: false });
+defineSlots<{ items: (props: {}) => any; filters?: (props: {}) => any }>();
+
 const props = defineProps<{ pagination: Pagination; page: string }>();
 
 const hasPages = computed(() => {

@@ -2,12 +2,14 @@
 import { Bank } from "@hennihaus/bamconfigbackend";
 import { HasPassed, TeamFormQuery, TeamType } from "~/utils/models";
 
+defineOptions({ inheritAttrs: false });
+
 defineProps<{ banks: Bank[] }>();
 
 const teamTypes = TeamType;
 const route = useRoute();
 
-const { handleSubmit, isSubmitting } = useForm<TeamFormQuery>({
+const { handleSubmit, isSubmitting } = useForm({
   initialValues: {
     username: "",
     jmsQueue: "",
@@ -31,12 +33,12 @@ const onReset = handleSubmit.withControlled(async (_, { resetForm }) => {
 const { value: username, handleBlur: handleUsernameBlur } = useField<string>(
   "username",
   {},
-  { validateOnValueUpdate: false, type: "text" }
+  { validateOnValueUpdate: false }
 );
 const { value: jmsQueue, handleBlur: handleJmsQueueBlur } = useField<string>(
   "jmsQueue",
   {},
-  { validateOnValueUpdate: false, type: "text" }
+  { validateOnValueUpdate: false }
 );
 const { value: hasPassed, handleBlur: handleHasPassedBlur } =
   useField<HasPassed>(
@@ -50,29 +52,13 @@ const { value: type, handleBlur: handleTypeBlur } = useField<TeamType>(
   { validateOnValueUpdate: false, type: "radio" }
 );
 const { value: minRequests, handleBlur: handleMinRequestsBlur } =
-  useField<number>(
-    "minRequests",
-    {},
-    { validateOnValueUpdate: false, type: "number" }
-  );
+  useField<number>("minRequests", {}, { validateOnValueUpdate: false });
 const { value: maxRequests, handleBlur: handleMaxRequestsBlur } =
-  useField<number>(
-    "maxRequests",
-    {},
-    { validateOnValueUpdate: false, type: "number" }
-  );
+  useField<number>("maxRequests", {}, { validateOnValueUpdate: false });
 const { value: studentFirstname, handleBlur: handleStudentFirstnameBlur } =
-  useField<string>(
-    "studentFirstname",
-    {},
-    { validateOnValueUpdate: false, type: "text" }
-  );
+  useField<string>("studentFirstname", {}, { validateOnValueUpdate: false });
 const { value: studentLastname, handleBlur: handleStudentLastnameBlur } =
-  useField<string>(
-    "studentLastname",
-    {},
-    { validateOnValueUpdate: false, type: "text" }
-  );
+  useField<string>("studentLastname", {}, { validateOnValueUpdate: false });
 
 const { capitalizePassed } = useCapitalizedPassed();
 </script>
