@@ -17,7 +17,7 @@ const hasAtLeastOneCreditConfig = computed(() =>
   <div v-if="hasAtLeastOneCreditConfig" class="ui grid">
     <div v-for="bank in activeBanks" :key="bank.uuid" class="eight wide column">
       <BankCreditConfigurationListItem
-        :credit-configuration="bank.creditConfiguration"
+        :credit-configuration="bank.creditConfiguration!"
         :title="bank.name"
       >
         <template #jmsQueue>
